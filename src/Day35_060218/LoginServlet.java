@@ -1,3 +1,4 @@
+package Day35_060218;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class LoginServlet
  */
 /* /login이라는 url-pattern으로 요청이 날라오면 밑의 클래스를 실행하겠다 */
-@WebServlet("/login")
+@WebServlet("/Day35_060218/login")
 
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
