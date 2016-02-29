@@ -4,6 +4,9 @@
 <%@page import="net.board.db.*"%>
 <%
 	BoardBean board = (BoardBean) request.getAttribute("boarddata");
+	String fileName = request.getParameter("fileName");
+	//아래 두줄 추가
+	String origfileName = request.getParameter("origfileName");
 %>
 <html>
 <head>
@@ -19,13 +22,12 @@
 			<td style="font-family: 돋음; font-size: 12" height="16">
 				<div align="center">제 목&nbsp;&nbsp;</div>
 			</td>
-			<td style="font-family: 돋음; font-size: 12">
-			<%=board.getBOARD_SUBJECT()%>
+			<td style="font-family: 돋음; font-size: 12"><%=board.getBOARD_SUBJECT()%>
 			</td>
 		</tr>
 
 		<tr bgcolor="cccccc">
-			<td colspan="2" style="height:1px;"></td>
+			<td colspan="2" style="height: 1px;"></td>
 		</tr>
 
 		<tr>
@@ -44,15 +46,17 @@
 
 		<tr>
 			<td style="font-family: 돋음; font-size: 12">
-				<div align="center">첨부파일</div>
+				<div align="center">첨부파일 :  </div>
 			</td>
 			<td style="font-family: 돋음; font-size: 12">
 				<%
 					if (!(board.getBOARD_FILE() == null)) {
-				%> <a href="./boardupload/<%=board.getBOARD_FILE()%>"> <%=board.getBOARD_FILE()%>
-			</a> <%
- 	}
- %>
+				%> <a href="./boardupload/<%=board.getBOARD_FILE()%>"> <%=board.getBOARD_FILE()%>[보기]
+			</a> <a
+				href="Day41_060226_file_down.jsp?file_name=<%=board.getBOARD_FILE()%>">   [파일다운]</a>
+				<%
+					}
+				%>
 			</td>
 		</tr>
 		<tr bgcolor="cccccc">
